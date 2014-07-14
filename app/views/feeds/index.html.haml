@@ -1,0 +1,26 @@
+%h1 Flux ICS
+
+- @organizations.each do |organization|
+  .panel.panel-default
+    .panel-heading
+      %h3.panel-title= organization.display_name
+    .panel-body
+      %p
+        Flux ICS pour l'organisation
+        %strong= organization.display_name
+        \:
+
+        %pre.code
+          = organization_feed_path(organization_id: organization.id, format: 'ics', only_path: false, auth_token: current_user.authentication_token)
+
+      %hr
+
+      = link_to "#organization-boards-#{ organization.id }", class: 'btn btn-block btn-default collapsed', data: { toggle: 'collapse' } do
+        Afficher les Boards
+        %span.caret
+
+    %ul.list-group.collapse{ id: "organization-boards-#{ organization.id }" }
+      - organization.boards.each do |board|
+        %li.list-group-item
+          = board.name
+

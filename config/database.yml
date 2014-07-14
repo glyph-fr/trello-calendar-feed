@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: 'trello-feed_dev'
+  username: postgres
+  password:
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: 'trello-feed_dev'
+  username: postgres
+  password:
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: 'trello-feed_dev'
+  username: postgres
+  password:
+  host: localhost

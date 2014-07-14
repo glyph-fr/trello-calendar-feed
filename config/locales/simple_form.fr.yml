@@ -1,0 +1,22 @@
+fr:
+  simple_form:
+    'yes': "Oui"
+    'no': "Non"
+    required:
+      text: "Obligatoire"
+      mark: ! '*'
+    error_notification:
+      default_message: "Il y a une ou plusieurs erreurs dans le formulaire. Merci de vérifier la validité de tous les champs"
+    # Labels and hints examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
