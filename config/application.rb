@@ -16,10 +16,9 @@ Bundler.require(*Rails.groups)
 module TrelloFeed
   class Application < Rails::Application
     config.assets.initialize_on_precompile = false
-    config.i18n.default_locale = :fr
+    config.i18n.default_locale = :en
     config.sass.preferred_syntax = :sass
     config.time_zone = "Paris"
-    ENV['RAILS_ADMIN_THEME'] = 'glyph'
 
     config.autoload_paths << Rails.root.join('lib').to_s
     # Settings in config/environments/* take precedence over those specified here.

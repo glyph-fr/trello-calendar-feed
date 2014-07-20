@@ -1,0 +1,10 @@
+- @boards.each do |board|
+  %li.list-group-item
+    = board.name
+
+    .input-group.feed-url-input-group
+      %span.input-group-addon
+        %button.copy-feed-url-btn{ :"data-clipboard-target" => "feed-url-board-#{ board.id }", title: "Click me to copy the feed URL to your clipboard."}
+          = fa_icon 'copy'
+
+      %input.feed-url.form-control{ id: "feed-url-board-#{ board.id }", disabled: 'disabled', value: board_feed_path(board_id: board.id, format: 'ics', only_path: false, auth_token: current_user.authentication_token) }

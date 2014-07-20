@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  mount Rich::Engine => '/rich', :as => 'rich'
-
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   root to: "home#index"
@@ -10,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :organizations, only: [] do
     resource :feed, only: [:show]
+    resources :boards, only: [:index]
   end
 
   resources :boards, only: [] do

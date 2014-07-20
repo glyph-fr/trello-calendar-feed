@@ -11,9 +11,17 @@
  * file per style scope.
  *
  *= require bootstrap
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
+
+.fa-spin {
+  -webkit-animation: spin 1.3s infinite linear;
+  -moz-animation: spin 1.3s infinite linear;
+  -o-animation: spin 1.3s infinite linear;
+  animation: spin 1.3s infinite linear
+}
 
 body {
   padding-top: 50px;
@@ -35,4 +43,43 @@ h1 {
   border-bottom: 1px solid #ccc;
   font-size: 2em;
   color: #666;
+}
+
+.trello-sign-in-home-button {
+  display: block;
+  margin: auto;
+  height: 60px;
+  padding-top: 18px;
+}
+
+.organization-boards .loader {
+  text-align: center;
+  padding: 10px 0;
+}
+
+pre.feed-url {
+  background-color: #e2ebeb;
+}
+
+.organization-boards pre.feed-url {
+  background-color: #cedbf3;
+}
+
+.feed-url-input-group .input-group-addon {
+  background-color: white;
+}
+
+.feed-url-input-group .copy-feed-url-btn {
+  background: none;
+  border: none;
+}
+
+.alert.alert-bottom {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  width: 400px;
+  margin-left: -200px;
+  text-align: center;
+  z-index: 100;
 }

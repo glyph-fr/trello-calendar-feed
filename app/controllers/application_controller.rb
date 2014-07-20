@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  layout :define_layout
+
   protected
 
   def trello_client
@@ -16,5 +18,9 @@ class ApplicationController < ActionController::Base
   def current_trello_user
     return unless user_signed_in?
     @current_trello_user ||= trello_client.find(:member, current_user.uid)
+  end
+
+  def define_layout
+    request.xhr? ? false : 'application'
   end
 end

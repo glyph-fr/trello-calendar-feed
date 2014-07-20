@@ -21,6 +21,8 @@ gem 'ruby-trello', require: 'trello'
 
 gem 'icalendar', github: 'icalendar/icalendar', require: 'icalendar'
 
+gem 'zeroclipboard-rails', '~> 0.1.0'
+
 # Fix version of nokogiri because at this time bundle goes wrong in 1.6.1 version
 gem 'nokogiri', '1.5.9'
 
@@ -44,8 +46,10 @@ end
 
 # Assets
 gem 'modernizr-rails'
+
 gem "compass-rails", github: "Compass/compass-rails"
 gem "compass-rgbapng", require: "rgbapng"
+
 gem 'font-awesome-rails'
 gem 'bootstrap-sass', '>= 3.0'
 gem "haml", ">= 3.0.0"

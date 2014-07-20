@@ -1,7 +1,7 @@
 %h1 Flux ICS
 
 - @organizations.each do |organization|
-  .panel.panel-default
+  .organization-feed-panel.panel.panel-default
     .panel-heading
       %h3.panel-title= organization.display_name
     .panel-body
@@ -10,17 +10,24 @@
         %strong= organization.display_name
         \:
 
-        %pre.code
-          = organization_feed_path(organization_id: organization.id, format: 'ics', only_path: false, auth_token: current_user.authentication_token)
+
+        .input-group.feed-url-input-group
+          %span.input-group-addon
+            %button.copy-feed-url-btn{ :"data-clipboard-target" => "feed-url-organization-#{ organization.id }", title: "Click me to copy the feed URL to your clipboard."}
+              = fa_icon 'copy'
+
+          %input.feed-url.form-control{ id: "feed-url-organization-#{ organization.id }", disabled: 'disabled', value: organization_feed_path(organization_id: organization.id, format: 'ics', only_path: false, auth_token: current_user.authentication_token) }
 
       %hr
 
-      = link_to "#organization-boards-#{ organization.id }", class: 'btn btn-block btn-default collapsed', data: { toggle: 'collapse' } do
+      = link_to "#organization-boards-#{ organization.id }", class: 'btn btn-block btn-default collapsed organization-boards-collapse-btn', data: { toggle: 'collapse', :"details-url" => organization_boards_path(organization_id: organization.id) } do
         Afficher les Boards
         %span.caret
 
-    %ul.list-group.collapse{ id: "organization-boards-#{ organization.id }" }
-      - organization.boards.each do |board|
-        %li.list-group-item
-          = board.name
+
+    %ul.organization-boards.list-group.collapse{ id: "organization-boards-#{ organization.id }" }
+      %li.list-group-item.loader
+        = fa_icon 'spinner spin'
+        Loading ...
+
 
